@@ -317,6 +317,33 @@
 % Custom hyphenation rules for words that LaTeX has trouble with
 \hyphenation{bio-mim-ic-ry bio-in-spi-ra-tion re-us-a-ble pro-vid-er Media-Wiki}
 
+%%% From Dan Ramaley
+
+% A ressubitem is a simple list element in anything but a ressection (second level)
+\newcommand{\ressubitem}[1]{
+    \vspace{-3pt} % Change this to -4 if the resume needs to be tighter.
+    \item \begin{flushleft} #1 \end{flushleft}
+}
+% A resbigitem is a complex list element for stuff like jobs and education:
+%  Arg 1: Name of company or university
+%  Arg 2: Location
+%  Arg 3: Title and/or date range
+\newcommand{\resbigitem}[3]{
+    \vspace{-5pt}
+    \item
+    \textbf{#1}\hfill{#2} \vspace{2pt}\textit{#3}
+    
+}
+
+% This is a list that comes with a resbigitem
+\newenvironment{ressubsec}[3]{
+    \resbigitem{#1}{#2}{#3}
+    \vspace{-2pt}
+    \begin{itemize}
+}{
+    \end{itemize}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -338,30 +365,6 @@
 \newlength{\rcollength}\setlength{\rcollength}{1.85in}%
 \newlength{\spacewidth}\setlength{\spacewidth}{20pt}
 %
-%\begin{tabular}[t]{@{}p{\textwidth-\rcollength-\spacewidth}@{}p{\spacewidth}@{}p{\rcollength}}%
-
-% Address box
-%\textit 3010 Kingman Blvd. Apt. 3 Des Moines, IA 50311 850-345-2406 cbpurcell@gmail.com
-%\parbox{\textwidth-\rcollength-\spacewidth}{%
-%Postdoctoral Scholar\\
-%\href{http://sols.asu.edu/}{School of Life Sciences}\\
-%\href{http://www.asu.edu/}{Arizona State University}\\
-%PO Box 874501\\
-%Tempe, AZ  85287-4501  USA}%
-
-%&
-% Uncomment to add a vertical bar in middle of contact information
-%{\vrule width 0.5pt}
-%\parbox[m][5\baselineskip]{\spacewidth}{} &
-
-% Non-snail-mail contact information
-%\parbox{\rcollength}{%
-%\textit{Mobile:} +1-760-483-3390 \\
-%\textit{Fax:} +1-480-965-6899 \\
-%\textit{E-mail:} \email{tpavlic@asu.edu}\\
-%\textit{WWW:} \href{http://www.tedpavlic.com/}{www.tedpavlic.com}}
-
-%\end{tabular}
 
 %%
 %% In modern CV's, it seems like ``Objective'' is frowned upon. Instead,
@@ -385,75 +388,43 @@
 
 \section{Employment}
 
-\textbf{Web Systems Analyst} \hfill {Drake University, Des Moines, Iowa 2012-Present}
-\begin{innerlist}
+\begin{ressubsec}{Web Systems Analyst}{Drake University, Des Moines, Iowa}{2012-Present}
+    \ressubitem{Build and extend custom service catalog with custom WordPress types and integration with ticketing system. (http://dts.drake.edu/catalog-services-by-category/)}
+    \ressubitem{Implement and extended Faculty Publishing environment: expanding usage of WordPress on Campus through evangelism, training and projects.}
+    \ressubitem{Perform Usability testing on classrooms, applications, and sites.}
+    \ressubitem{Co-develop a course on Git version control and help train 6 developers.}
+    \ressubitem{Maintain and extend primary IT website.}
+\end{ressubsec}
 
+\begin{ressubsec}{Web Developer}{Drake University, Des Moines, Iowa}{2010-2012}
+    \ressubitem{Developed and maintained primary library and related websites using PHP, WordPress, CSS.}
+    \ressubitem{Integrated library sites with relevant tools and expanded resources available to end users.}
+    \ressubitem{Collaborated with faculty to determine Information Architecture and needs of sites.}
+\end{ressubsec}
 
-    \item Build and extend custom service catalog with custom WordPress types and integration with ticketing system. (http://dts.drake.edu/catalog-services-by-category/)
-    \item Implement and extended Faculty Publishing environment: expanding usage of WordPress on Campus through evangelism, training and projects.
-    \item Perform Usability testing on classrooms, applications, and sites.
-    \item Maintain and extend primary IT website.
+\begin{ressubsec}{Web Editor}{Drake University, Des Moines, Iowa}{2009-2010}
+    \ressubitem{Developed and maintain University website using HTML, CSS, PHP, Sungard CMS and WordPress.}
+\end{ressubsec}
 
-\end{innerlist}
-\halfblankline
-\halfblankline
+\begin{ressubsec}{Developer}{GeoLearning, West Des Moines, Iowa}{2006-2008}
+    \ressubitem{Developed and maintained client learning sites using HTML, Javascript, CSS, and ColdFusion.}
+    \ressubitem{Managed and tested build deployment to internal and external environments.}
+    \ressubitem{Assisted with build deployment automation.}
+\end{ressubsec}
 
+\begin{ressubsec}{Division Web Manager}{Florida Department of Health, Tallahassee, Florida}{2005-2006}
+    \ressubitem{Designed, developed, and maintained internet and intranet pages for the Division and the Office of Public Health Preparedness.}
+    \ressubitem{Assisted and taught office web managers how to write HTML and CSS and verified their code.}
+    \ressubitem{Researched and implemented current web technologies.}
+    \ressubitem{Expanded use of web resources, including surveys, to various areas of the Division.}
+\end{ressubsec}
 
-\textbf{Web Developer} \hfill {Drake University, Des Moines, Iowa 2010-2012}
-\begin{innerlist}
-
-
-    \item Developed and maintained primary library and related websites using PHP, WordPress, CSS.
-    \item Integrated library sites with relevant tools and expanded resources available to end users.
-    \item Collaborated with faculty to determine Information Architecture and needs of sites.
-
-
-\end{innerlist}
-\halfblankline
-\halfblankline
-
-\textbf {Web Editor} \hfill {Drake University, Des Moines, Iowa 2009-2010}
-\begin{innerlist}
-
-    \item Developed and maintain University website using HTML, CSS, PHP, Sungard CMS and WordPress.
-
-\end{innerlist}
-\halfblankline
-\halfblankline
-
-\textbf {Developer} \hfill {GeoLearning, West Des Moines, Iowa
-2006-2008}
-\begin{innerlist}
-
-    \item Developed and maintained client learning sites using HTML, Javascript, CSS, and ColdFusion.
-    \item Managed and tested build deployment to internal and external environments.
-    \item Assisted with build deployment automation.
-
-\end{innerlist}
-\halfblankline
-\halfblankline
-
-\textbf {Division Web Manager} \hfill{Florida Department of Health, Tallahassee, Florida 2005-2006}
-\begin{innerlist}
-
-    \item Designed, developed, and maintained internet and intranet pages for the Division and the Office of Public Health Preparedness.
-    \item Assisted and taught office web managers how to write HTML and CSS and verified their code.
-    \item Researched and implemented current web technologies.
-    \item Expanded use of web resources, including surveys, to various areas of the Division.
-
-\end{innerlist}
-\halfblankline
-\halfblankline
-
-\textbf {Imaging Technician} \hfill {City of Tallahassee,
-Tallahassee, Florida 2004-2005}
-\begin{innerlist}
-
-    \item Assisted in web development and posting.
-    \item Troubleshot, researched, and trained employees in hardware and software implementation and usage.
-    \item Developed daily procedures, documentation, and expanded program.
-
-\end{innerlist}
+\begin{ressubsec}{Imaging Technician}{City of Tallahassee,
+Tallahassee, Florida}{2004-2005}
+    \ressubitem{Assisted in web development and posting.}
+    \ressubitem{Troubleshot, researched, and trained employees in hardware and software implementation and usage.}
+    \ressubitem{Developed daily procedures, documentation, and expanded program.}
+\end{ressubsec}
 
 
 \section{Education}
